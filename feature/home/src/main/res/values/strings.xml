@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="feature_home">Home</string>
+    <string name="feature_name">Home</string>
 
     <!-- region Home -->
 

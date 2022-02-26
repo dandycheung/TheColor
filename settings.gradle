@@ -1,9 +1,10 @@
 rootProject.name = "TheColor"
-include ':app'
+include ':base'
 include ':domain'
 include ':data'
 include ':data:local'
 include ':data:remote'
-include ':feature:home'
-include ':base'
 include ':data-bridge'
+include ':app'
+include ':feature:home'
+include ':feature:settings'
