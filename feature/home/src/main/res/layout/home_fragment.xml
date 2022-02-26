@@ -26,6 +26,16 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/offset_content_horizontal" />
 
+        <Button
+            style="@style/Widget.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/offset_8"
+            app:icon="@drawable/ic_settings"
+            app:iconTint="@color/material_on_background_emphasis_medium"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/headline"
             android:layout_width="wrap_content"

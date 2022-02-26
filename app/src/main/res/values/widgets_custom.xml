@@ -8,6 +8,15 @@
 
     <!-- region Button -->
 
+    <style name="Widget.Button.Icon" parent="Widget.Material3.Button.TextButton.Icon">
+        <item name="iconPadding">0dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
     <style name="Widget.Button.Outlined.OnBackground" parent="Widget.TheColor.Button.Outlined">
         <item name="materialThemeOverlay">@style/MaterialThemeOverlay.Button.Outlined.OnBackground
         </item>
