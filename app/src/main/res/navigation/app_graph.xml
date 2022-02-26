@@ -10,4 +10,10 @@
         app:graphResName="home_graph"
         app:moduleName="home" />
 
+    <include-dynamic
+        android:id="@+id/settings_graph"
+        app:graphPackage="${applicationId}.settings"
+        app:graphResName="settings_graph"
+        app:moduleName="settings" />
+
 </navigation>
