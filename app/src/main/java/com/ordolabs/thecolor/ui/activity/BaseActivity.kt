@@ -1,7 +1,6 @@
 package com.ordolabs.thecolor.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
@@ -9,9 +8,9 @@ abstract class BaseActivity(@LayoutRes layoutRes: Int) : AppCompatActivity(layou
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         parseStartIntent()
         setUp()
+        setFragments()
         setViews()
     }
 
@@ -19,18 +18,30 @@ abstract class BaseActivity(@LayoutRes layoutRes: Int) : AppCompatActivity(layou
      * Parses `Intent`, that started this `Activity`.
      */
     protected open fun parseStartIntent() {
-        // override me
+        // default empty implementation
     }
 
     /**
      * Configures non-view components.
+     * Being called in [onCreate] method.
      */
-    abstract fun setUp()
+    protected open fun setUp() {
+        // default empty implementation
+    }
 
     /**
-     * Sets activity's views and configures them.
+     * Configures child fragments.
+     * Being called in [onCreate] method.
      */
-    abstract fun setViews()
+    protected open fun setFragments() {
+        // default empty implementation
+    }
+
+    /**
+     * Sets `Activity`'s views and configures them.
+     * Being called in [onCreate] method.
+     */
+    protected abstract fun setViews()
 
     companion object {
         // extra keys and stuff
