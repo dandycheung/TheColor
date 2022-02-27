@@ -17,6 +17,11 @@
         <item name="colorDebug">#FF0000</item>
         <item name="colorToolsBackground">#F0F0F0</item>
 
+        <!-- color surface -->
+        <item name="colorSurface">@color/magnolia</item>
+        <item name="colorSurfaceVariant">@color/gainsboro</item>
+        <item name="colorSurfaceInverse">@color/cod_gray</item>
+
         <!-- color on -->
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnPrimaryContainer">@color/black</item>
@@ -40,9 +45,6 @@
         <!-- colors background -->
         <item name="android:colorBackground">@color/white</item>
         <item name="android:colorBackgroundFloating">@color/white</item>
-        <item name="colorSurface">@color/white</item>
-        <item name="colorSurfaceVariant">@color/gainsboro</item>
-        <item name="colorSurfaceInverse">@color/black</item>
 
         <!-- types -->
         <item name="textAppearanceDisplayLarge">@style/TextAppearance.TheColor.DisplayLarge</item>
