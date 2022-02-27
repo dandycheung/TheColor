@@ -29,6 +29,23 @@ class CategoryFragment : BaseFragment() {
         return inflater.inflate(R.layout.category_fragment, container, false)
     }
 
+    // region Set up
+
+    override fun setUp() {
+        setSharedElementTransitions()
+    }
+
+    private fun setSharedElementTransitions() {
+        val context = context ?: return
+        val transition = TransitionInflater
+            .from(context)
+            .inflateTransition(android.R.transition.move)
+        this.sharedElementEnterTransition = transition
+        this.sharedElementReturnTransition = transition
+    }
+
+    // endregion
+
     // region Set fragments
 
     override fun setFragments() {
@@ -49,7 +66,6 @@ class CategoryFragment : BaseFragment() {
 
     override fun setViews() {
         setToolbar()
-        setSharedElementTransitions()
     }
 
     private fun setToolbar() =
@@ -57,16 +73,8 @@ class CategoryFragment : BaseFragment() {
             setActivitySupportActionBar(toolbar)
             toolbar.setTitle(args.category.titleRes)
             toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
+            toolbar.transitionName = args.transitionName
         }
-
-    private fun setSharedElementTransitions() {
-        val context = context ?: return
-        val transition = TransitionInflater
-            .from(context)
-            .inflateTransition(android.R.transition.move)
-        this.sharedElementEnterTransition = transition
-        this.sharedElementReturnTransition = transition
-    }
 
     // endregion
 

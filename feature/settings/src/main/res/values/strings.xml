@@ -8,7 +8,6 @@
     <!-- region Category -->
 
     <string name="settings_category">Settings category</string>
-    <string name="settings_category_shared_title" translatable="false">title</string>
 
     <string name="settings_category_appearance">Appearance</string>
 

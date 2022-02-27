@@ -8,6 +8,6 @@
     android:drawablePadding="@dimen/offset_16"
     android:padding="@dimen/padding_list_item"
     android:textAppearance="?attr/textAppearanceTitleMedium"
-    android:transitionName="@string/settings_category_shared_title"
     tools:drawableStartCompat="@drawable/ic_palette"
-    tools:text="Category title" />
+    tools:text="Category title"
+    tools:transitionName="title5" />

@@ -77,9 +77,10 @@ class SettingsFragment :
     // endregion
 
     private fun navigateToCategory(itemView: View, category: Category) {
-        val action = SettingsFragmentDirections.actionToCategory(category)
+        val transitionName = itemView.transitionName
+        val action = SettingsFragmentDirections.actionToCategory(category, transitionName)
         val extras = FragmentNavigatorExtras(
-            itemView to getString(R.string.settings_category_shared_title)
+            itemView to transitionName
         )
         findNavController().navigate(action, extras)
     }

@@ -15,9 +15,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="@string/settings_category_shared_title"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            tools:title="@string/settings_category_appearance" />
+            tools:title="@string/settings_category_appearance"
+            tools:transitionName="@string/settings_category_shared_title" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

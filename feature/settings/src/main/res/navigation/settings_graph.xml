@@ -32,6 +32,11 @@
             app:argType="com.ordolabs.feature_settings.model.Category"
             app:nullable="false" />
 
+        <argument
+            android:name="transitionName"
+            app:argType="string"
+            app:nullable="false" />
+
     </fragment>
 
 </navigation>

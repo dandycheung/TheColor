@@ -11,6 +11,9 @@ class CategoryAdapter(
     val categories: ArrayList<Category>
 ) : BaseAdapter<Category, CategoryViewHolder>() {
 
+    fun getItemViewTransitionName(position: Int): String =
+        ITEM_VIEW_TRANSITION_NAME + position
+
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categories.getOrNull(position) ?: return
         holder.populate(category)
@@ -33,15 +36,24 @@ class CategoryAdapter(
 
     override fun getItemCount(): Int =
         categories.size
+
+    companion object {
+        private const val ITEM_VIEW_TRANSITION_NAME = "title"
+    }
 }
 
 class CategoryViewHolder(itemView: View) : BaseViewHolder<Category>(itemView) {
 
     override fun populate(item: Category): Unit =
         getItemViewBinding().run {
+            val transitionName = getCategoryAdapter()?.getItemViewTransitionName(layoutPosition)
             category.setCompoundDrawablesWithIntrinsicBounds(item.iconRes, 0, 0, 0)
             category.setText(item.titleRes)
+            category.transitionName = transitionName
         }
+
+    private fun getCategoryAdapter() =
+        bindingAdapter as? CategoryAdapter
 
     private fun getItemViewBinding(): SettingsCategoryItemBinding =
         SettingsCategoryItemBinding.bind(itemView)
