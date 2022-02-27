@@ -11,16 +11,12 @@
         <item name="colorPrimaryInverse">?attr/colorDebug</item>
         <item name="colorSecondary">@color/robin_egg</item>
         <item name="colorTertiary">?attr/colorDebug</item>
+        <item name="colorSurface">@color/csl_color_surface</item>
         <item name="colorOutline">@color/m3_sys_color_light_outline</item>
         <item name="colorError">@color/crimson</item>
 
         <item name="colorDebug">#FF0000</item>
         <item name="colorToolsBackground">#F0F0F0</item>
-
-        <!-- color surface -->
-        <item name="colorSurface">@color/magnolia</item>
-        <item name="colorSurfaceVariant">@color/gainsboro</item>
-        <item name="colorSurfaceInverse">@color/cod_gray</item>
 
         <!-- color on -->
         <item name="colorOnPrimary">@color/white</item>
