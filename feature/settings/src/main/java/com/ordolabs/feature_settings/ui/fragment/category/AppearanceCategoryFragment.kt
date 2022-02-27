@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryAppearanceFragmentBinding
@@ -27,6 +28,7 @@ class AppearanceCategoryFragment : BaseFragment() {
 
     override fun setViews() {
         setToolbar()
+        setSharedElementsTransition()
     }
 
     private fun setToolbar() =
@@ -34,6 +36,14 @@ class AppearanceCategoryFragment : BaseFragment() {
             setActivitySupportActionBar(toolbar)
             toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
         }
+
+    private fun setSharedElementsTransition() {
+        val context = context ?: return
+        val transition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        this.sharedElementEnterTransition = transition
+        this.sharedElementReturnTransition = transition
+    }
 
     // endregion
 

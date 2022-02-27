@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
@@ -38,8 +39,8 @@ class SettingsFragment : BaseFragment() {
 
     private fun setCategories() =
         binding.run {
-            appearanceCategory.setOnClickListener {
-                navigateToCategory(R.id.actionSettingsToAppearanceCategory)
+            appearanceCategory.setOnClickListener { view ->
+                navigateToCategory(view, R.id.actionSettingsToAppearanceCategory)
             }
         }
 
@@ -54,8 +55,11 @@ class SettingsFragment : BaseFragment() {
 
     // endregion
 
-    private fun navigateToCategory(@IdRes actionId: Int) {
-        findNavController().navigate(actionId)
+    private fun navigateToCategory(categoryView: View, @IdRes actionId: Int) {
+        val extras = FragmentNavigatorExtras(
+            categoryView to getString(R.string.settings_category_shared_title)
+        )
+        findNavController().navigate(actionId, null, null, extras)
     }
 
     companion object {
