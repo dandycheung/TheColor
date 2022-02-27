@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 
 abstract class BaseFragment : Fragment() {
 
+    // TODO: abolish
     @IdRes
     open val defaultFragmentContainerId: Int = R.id.defaultFragmentContainer
 
