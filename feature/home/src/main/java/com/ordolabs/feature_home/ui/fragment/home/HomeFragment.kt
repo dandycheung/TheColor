@@ -22,6 +22,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_home.R
 import com.ordolabs.feature_home.databinding.HomeFragmentBinding
@@ -171,8 +172,16 @@ class HomeFragment :
     // region Set views
 
     override fun setViews() {
+        setSettingsBtn()
         setProcceedBtn()
     }
+
+    private fun setSettingsBtn() =
+        binding.run {
+            settingsBtn.setOnClickListener {
+                findNavController().navigate(R.id.actionHomeToSettings)
+            }
+        }
 
     private fun setProcceedBtn() =
         binding.run {

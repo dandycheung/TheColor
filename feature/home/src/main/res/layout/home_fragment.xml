@@ -27,6 +27,7 @@
             app:layout_constraintGuide_end="@dimen/offset_content_horizontal" />
 
         <Button
+            android:id="@+id/settingsBtn"
             style="@style/Widget.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/homeFragment">
+
+    <include app:graph="@navigation/settings_graph" />
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ordolabs.feature_home.ui.fragment.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/actionHomeToSettings"
+            app:destination="@id/settingsGraph" />
+
+    </fragment>
 
 </navigation>

@@ -1,12 +1,12 @@
-package com.ordolabs.settings.ui.fragment
+package com.ordolabs.feature_settings.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.ordolabs.settings.R
-import com.ordolabs.settings.databinding.SettingsFragmentBinding
+import com.ordolabs.feature_settings.R
+import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
 
 class SettingsFragment : BaseFragment() {
 
