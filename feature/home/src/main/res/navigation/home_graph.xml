@@ -15,10 +15,10 @@
         <action
             android:id="@+id/actionHomeToSettings"
             app:destination="@id/settingsGraph"
-            app:enterAnim="@anim/nav_enter_screen"
-            app:exitAnim="@anim/nav_exit_screen"
-            app:popEnterAnim="@anim/nav_pop_enter_screen"
-            app:popExitAnim="@anim/nav_pop_exit_screen" />
+            app:enterAnim="@anim/nav_screen_enter"
+            app:exitAnim="@anim/nav_screen_exit"
+            app:popEnterAnim="@anim/nav_screen_pop_enter"
+            app:popExitAnim="@anim/nav_screen_pop_exit" />
 
     </fragment>
 
