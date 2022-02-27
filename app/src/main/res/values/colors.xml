@@ -15,9 +15,11 @@
     <color name="crimson">#B00020</color>
 
     <!-- violets -->
+    <color name="magnolia">#F4EEFB</color>
     <color name="violet">#BB86FC</color>
     <color name="indigo">#6200EE</color>
     <color name="purple">#4B01D0</color>
+    <color name="indigo_dark">#1E1D22</color>
 
     <!-- blues -->
 

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/defaultFragmentContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/colorBackground"
     android:paddingTop="@dimen/offset_8"
-    tools:layout="@layout/color_details_fragment" />
+    tools:layout="@layout/color_details_fragment"
+    tools:layout_gravity="bottom" />

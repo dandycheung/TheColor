@@ -7,6 +7,7 @@
         <item name="colorPrimaryVariant">@color/purple</item>
         <item name="colorSecondary">@color/robin_egg</item>
         <item name="colorSecondaryVariant">@color/dark_cyan</item>
+        <item name="colorSurface">@color/indigo_dark</item>
         <item name="colorError">@color/cinnamon_satin</item>
 
         <!-- colors on -->
