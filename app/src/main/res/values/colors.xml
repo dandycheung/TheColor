@@ -5,19 +5,28 @@
     <color name="black">@android:color/black</color>
     <color name="transparent">@android:color/transparent</color>
 
+    <!-- grays -->
     <color name="gainsboro">#DCDCDC</color>
     <color name="silver">#AEAEAF</color>
+    <color name="cod_gray">#121212</color>
 
-    <color name="indigo">#6200EE</color>
+    <!-- reds -->
+    <color name="cinnamon_satin">#CF6679</color>
+    <color name="crimson">#B00020</color>
+
+    <!-- violets -->
     <color name="violet">#BB86FC</color>
+    <color name="indigo">#6200EE</color>
     <color name="purple">#4B01D0</color>
 
+    <!-- blues -->
+
+    <!-- azures -->
     <color name="robin_egg">#03DAC6</color>
     <color name="dark_cyan">#018786</color>
 
-    <color name="crimson">#B00020</color>
-    <color name="cinnamon_satin">#CF6679</color>
+    <!-- greens -->
 
-    <color name="cod_gray">#121212</color>
+    <!-- yellows -->
 
 </resources>
