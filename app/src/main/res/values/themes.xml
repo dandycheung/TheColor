@@ -88,7 +88,7 @@
         <item name="bottomSheetStyle">@style/Widget.TheColor.BottomSheet.Modal</item>
         <item name="chipStyle">@style/Widget.TheColor.Chip</item>
         <item name="chipGroupStyle">@style/Widget.TheColor.ChipGroup</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+        <item name="toolbarStyle">@style/Widget.TheColor.Toolbar</item>
         <item name="textInputStyle">@style/Widget.TheColor.TextInputLayout</item>
     </style>
 

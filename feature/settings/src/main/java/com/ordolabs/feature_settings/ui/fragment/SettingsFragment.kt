@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
+import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
 
 class SettingsFragment : BaseFragment() {
 
@@ -23,8 +25,16 @@ class SettingsFragment : BaseFragment() {
     // region Set views
 
     override fun setViews() {
-        //
+        setToolbar()
     }
+
+    private fun setToolbar() =
+        binding.run {
+            setActivitySupportActionBar(toolbar)
+            toolbar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
 
     // endregion
 

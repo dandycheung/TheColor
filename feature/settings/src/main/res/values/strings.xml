@@ -3,4 +3,10 @@
 
     <string name="feature_name">Settings</string>
 
+    <!-- region Settings -->
+
+    <string name="settings_title">Settings</string>
+
+    <!-- endregion -->
+
 </resources>

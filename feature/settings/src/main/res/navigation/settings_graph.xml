@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ordolabs.feature_settings.ui.fragment.SettingsFragment"
-        android:label="SettingsFragment"
+        android:label="@string/settings_title"
         tools:layout="@layout/settings_fragment" />
 
 </navigation>
