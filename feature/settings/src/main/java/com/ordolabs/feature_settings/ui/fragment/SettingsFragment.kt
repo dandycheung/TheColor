@@ -31,10 +31,17 @@ class SettingsFragment : BaseFragment() {
     private fun setToolbar() =
         binding.run {
             setActivitySupportActionBar(toolbar)
-            toolbar.setNavigationOnClickListener {
-                findNavController().navigateUp()
-            }
+            toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
         }
+
+    // endregion
+
+    // region View actions
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun onToolbarNavigationClick(view: View) {
+        findNavController().navigateUp()
+    }
 
     // endregion
 
