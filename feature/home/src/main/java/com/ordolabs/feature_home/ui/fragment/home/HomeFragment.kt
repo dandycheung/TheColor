@@ -79,6 +79,7 @@ class HomeFragment :
         featureHomeComponent.viewModelFactory
     }
 
+    private var navigationBarColor: Color? = null
     private var inputPagerView: ColorInputPagerView? = null
     private val previewResizeDest = AnimatorDestination()
 
@@ -96,9 +97,15 @@ class HomeFragment :
         state.restoreState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        applyNavigationBarColor()
+    }
+
     override fun onStop() {
         super.onStop()
         hideSoftInputAndClearFocus()
+        restoreNavigationBarColor()
     }
 
     override fun onDestroy() {
@@ -229,15 +236,26 @@ class HomeFragment :
         binding.colorDataWrapper.doOnLayout {
             binding.colorDataWrapper.backgroundTintList =
                 ColorStateList.valueOf(color.toColorInt())
-            activity?.setNavigationBarColor(color)
+            this.navigationBarColor = color
+            applyNavigationBarColor()
         }
 
     private fun clearDataWrapperTint() =
         binding.colorDataWrapper.doOnLayout {
             binding.colorDataWrapper.backgroundTintList =
                 ColorStateList.valueOf(ColorAndroid.TRANSPARENT)
-            activity?.restoreNavigationBarColor()
+            this.navigationBarColor = null
+            restoreNavigationBarColor()
         }
+
+    private fun applyNavigationBarColor() {
+        val color = navigationBarColor ?: return
+        activity?.setNavigationBarColor(color)
+    }
+
+    private fun restoreNavigationBarColor() {
+        activity?.restoreNavigationBarColor()
+    }
 
     // endregion
 
@@ -595,7 +613,7 @@ class HomeFragment :
             if (!preview.isUserInput) return // collapse only if user changed color manually
             val color = preview.toColorInt()
             val dataBg = getDataWrapperTint()
-            if (dataBg == color) return // TODO: is ever a case?; debug
+            if (dataBg == color) return // same preview color arrived; ignore
             animColorDataCollapsingOnPreviewSuccess()
             view.changeState(Type.PREVIEW)
         }
