@@ -39,7 +39,7 @@
                 android:drawablePadding="@dimen/offset_16"
                 android:padding="@dimen/padding_list_item"
                 android:text="@string/settings_category_appearance"
-                android:textAppearance="?attr/textAppearanceTitleSmall"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:transitionName="@string/settings_category_shared_title"
                 app:drawableStartCompat="@drawable/ic_palette" />
 
