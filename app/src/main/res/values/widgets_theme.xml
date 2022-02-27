@@ -6,6 +6,10 @@
         Preserve alphabetical order.
     -->
 
+    <style name="Widget.TheColor.AppBarLayout" parent="Widget.Material3.AppBarLayout">
+        <!-- nothing special here -->
+    </style>
+
     <style name="Widget.TheColor.Button" parent="Widget.Material3.Button">
         <!-- nothing special here -->
     </style>

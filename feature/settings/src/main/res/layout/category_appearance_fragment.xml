@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ordolabs.feature_settings.ui.fragment.SettingsFragment">
+    tools:context="com.ordolabs.feature_settings.ui.fragment.category.AppearanceCategoryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="@string/settings_title" />
+            app:title="@string/settings_category_appearance" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,16 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/appearanceCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:drawablePadding="@dimen/offset_16"
-                android:padding="@dimen/padding_list_item"
-                android:text="@string/settings_category_appearance"
-                android:textAppearance="?attr/textAppearanceTitleSmall"
-                app:drawableStartCompat="@drawable/ic_palette" />
+            <!-- content goes here -->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

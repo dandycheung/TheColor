@@ -14,13 +14,13 @@
     <dimen name="offset_48">48dp</dimen>
     <dimen name="offset_64">64dp</dimen>
 
-    <dimen name="offset_content_horizontal">@dimen/offset_16</dimen>
-    <dimen name="offset_content_vertical">@dimen/offset_32</dimen>
+    <dimen name="offset_content_horizontal">16dp</dimen>
+    <dimen name="offset_content_vertical">32dp</dimen>
+
+    <dimen name="padding_list_item">16dp</dimen>
 
     <!-- endregion -->
 
-    <dimen name="disabled_alpha_default" type="dimen" format="float">0.4</dimen>
-
-    <dimen name="divider_height">1dp</dimen>
+    <dimen name="disabled_alpha_default" format="float" type="dimen">0.4</dimen>
 
 </resources>
