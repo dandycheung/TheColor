@@ -16,6 +16,8 @@
             android:id="@+id/actionHomeToSettings"
             app:destination="@id/settingsGraph"
             app:enterAnim="@anim/nav_enter_screen"
+            app:exitAnim="@anim/nav_exit_screen"
+            app:popEnterAnim="@anim/nav_pop_enter_screen"
             app:popExitAnim="@anim/nav_pop_exit_screen" />
 
     </fragment>
