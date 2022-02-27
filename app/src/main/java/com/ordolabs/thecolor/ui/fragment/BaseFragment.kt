@@ -77,6 +77,7 @@ abstract class BaseFragment : Fragment() {
 
     // region Fragment.onViewCreated
 
+    // TODO: make use of @EmptySuper annotation
     /**
      * Collects (subscribes to) data from ViewModel's.
      * Being called in [Fragment.onViewCreated] method.
