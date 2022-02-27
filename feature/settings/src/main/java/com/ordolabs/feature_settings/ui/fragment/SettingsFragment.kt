@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,6 +37,11 @@ class SettingsFragment :
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        postponeEnterTransition()
+    }
+
     // region Set views
 
     override fun setViews() {
@@ -53,6 +59,9 @@ class SettingsFragment :
         val recycler = binding.categoryRecycler
         recycler.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recycler.adapter = categoryAdapter
+        recycler.doOnPreDraw {
+            startPostponedEnterTransition()
+        }
     }
 
     // endregion
