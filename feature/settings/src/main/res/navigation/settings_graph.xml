@@ -12,7 +12,7 @@
         tools:layout="@layout/settings_fragment">
 
         <action
-            android:id="@+id/categoryAction"
+            android:id="@+id/actionToCategory"
             app:destination="@id/categoryFragment"
             app:enterAnim="@anim/nav_subscreen_enter"
             app:exitAnim="@anim/nav_subscreen_exit"
@@ -28,8 +28,8 @@
         tools:layout="@layout/category_fragment">
 
         <argument
-            android:name="contentType"
-            app:argType="com.ordolabs.feature_settings.ui.fragment.category.content.ContentType"
+            android:name="category"
+            app:argType="com.ordolabs.feature_settings.model.Category"
             app:nullable="false" />
 
     </fragment>

@@ -6,15 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
-import com.ordolabs.feature_settings.ui.fragment.category.content.ContentType
+import com.ordolabs.feature_settings.model.Category
+import com.ordolabs.feature_settings.ui.adapter.CategoryAdapter
+import com.ordolabs.thecolor.ui.adapter.base.OnRecyclerItemClicksListener
 import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
+import com.ordolabs.thecolor.R as RApp
 
-class SettingsFragment : BaseFragment() {
+class SettingsFragment :
+    BaseFragment(),
+    OnRecyclerItemClicksListener {
 
     private val binding: SettingsFragmentBinding by viewBinding()
+
+    private val categoryAdapter =
+        CategoryAdapter(makeCategories()).also {
+            it.setOnClicksListener(this)
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +40,7 @@ class SettingsFragment : BaseFragment() {
 
     override fun setViews() {
         setToolbar()
-        setCategories()
+        setCategoryRecycler()
     }
 
     private fun setToolbar() =
@@ -37,12 +49,11 @@ class SettingsFragment : BaseFragment() {
             toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
         }
 
-    private fun setCategories() =
-        binding.run {
-            appearanceCategory.setOnClickListener { view ->
-                navigateToCategory(view)
-            }
-        }
+    private fun setCategoryRecycler() {
+        val recycler = binding.categoryRecycler
+        recycler.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recycler.adapter = categoryAdapter
+    }
 
     // endregion
 
@@ -55,14 +66,117 @@ class SettingsFragment : BaseFragment() {
 
     // endregion
 
-    private fun navigateToCategory(itemView: View) {
-        val contentType = ContentType.APPEARANCE
-        val action = SettingsFragmentDirections.categoryAction(contentType)
+    // region OnRecyclerItemClicksListener
+
+    override fun onRecyclerItemClick(position: Int) {
+        val category = categoryAdapter.categories.getOrNull(position) ?: return
+        val view = binding.categoryRecycler.layoutManager?.findViewByPosition(position) ?: return
+        navigateToCategory(view, category)
+    }
+
+    // endregion
+
+    private fun navigateToCategory(itemView: View, category: Category) {
+        val action = SettingsFragmentDirections.actionToCategory(category)
         val extras = FragmentNavigatorExtras(
             itemView to getString(R.string.settings_category_shared_title)
         )
         findNavController().navigate(action, extras)
     }
+
+    private fun makeCategories() =
+        arrayListOf(
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.APPEARANCE,
+                titleRes = R.string.settings_category_appearance,
+                iconRes = RApp.drawable.ic_palette
+            )
+        )
 
     companion object {
         // being created by NavHostFragment, thus no newInstance() method

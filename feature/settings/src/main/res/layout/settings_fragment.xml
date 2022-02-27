@@ -26,24 +26,11 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/appearanceCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:drawablePadding="@dimen/offset_16"
-                android:padding="@dimen/padding_list_item"
-                android:text="@string/settings_category_appearance"
-                android:textAppearance="?attr/textAppearanceTitleMedium"
-                android:transitionName="@string/settings_category_shared_title"
-                app:drawableStartCompat="@drawable/ic_palette" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            tools:listitem="@layout/settings_category_item" />
 
     </ScrollView>
 

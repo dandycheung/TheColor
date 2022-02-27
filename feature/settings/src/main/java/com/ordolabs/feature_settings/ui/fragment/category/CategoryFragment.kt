@@ -10,9 +10,9 @@ import androidx.transition.TransitionInflater
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryFragmentBinding
+import com.ordolabs.feature_settings.model.Category
 import com.ordolabs.feature_settings.ui.fragment.BaseFragment
 import com.ordolabs.feature_settings.ui.fragment.category.content.AppearanceCategoryContentFragment
-import com.ordolabs.feature_settings.ui.fragment.category.content.ContentType
 import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
 import com.ordolabs.thecolor.util.ext.setFragmentOrGet
 
@@ -37,7 +37,7 @@ class CategoryFragment : BaseFragment() {
 
     private fun setContentFragment() {
         val container = binding.contentFragmentContainer
-        val type = args.contentType
+        val type = args.category.contentType
         setFragmentOrGet(container.id) {
             createFragmentFromContentType(type)
         }
@@ -55,7 +55,7 @@ class CategoryFragment : BaseFragment() {
     private fun setToolbar() =
         binding.run {
             setActivitySupportActionBar(toolbar)
-            toolbar.setTitle(args.contentType.titleRes)
+            toolbar.setTitle(args.category.titleRes)
             toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
         }
 
@@ -79,9 +79,9 @@ class CategoryFragment : BaseFragment() {
 
     // endregion
 
-    private fun createFragmentFromContentType(type: ContentType) =
+    private fun createFragmentFromContentType(type: Category.ContentType) =
         when (type) {
-            ContentType.APPEARANCE -> AppearanceCategoryContentFragment.newInstance()
+            Category.ContentType.APPEARANCE -> AppearanceCategoryContentFragment.newInstance()
         }
 
     companion object {
