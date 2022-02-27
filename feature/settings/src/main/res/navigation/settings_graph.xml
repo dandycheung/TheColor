@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/actionSettingsToAppearanceCategory"
-            app:destination="@id/appearanceCategoryFragment" />
+            app:destination="@id/appearanceCategoryFragment"
+            app:enterAnim="@anim/nav_subscreen_enter"
+            app:exitAnim="@anim/nav_subscreen_exit"
+            app:popEnterAnim="@anim/nav_subscreen_pop_enter"
+            app:popExitAnim="@anim/nav_subscreen_pop_exit" />
 
     </fragment>
 
