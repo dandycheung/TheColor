@@ -2,7 +2,6 @@
 <resources>
 
     <string name="feature_name">Settings</string>
-
     <string name="settings_title">Settings</string>
 
     <!-- region Category -->
@@ -10,10 +9,17 @@
     <string name="settings_category">Settings category</string>
 
     <string name="settings_category_appearance">Appearance</string>
+    <string name="settings_category_about">About</string>
 
     <!-- endregion -->
 
     <!-- region Appearnace -->
+
+    <!-- endregion -->
+
+    <!-- region About -->
+
+
 
     <!-- endregion -->
 

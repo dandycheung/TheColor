@@ -15,6 +15,7 @@ data class Category(
 ) : Parcelable {
 
     enum class ContentType {
-        APPEARANCE
+        APPEARANCE,
+        ABOUT
     }
 }

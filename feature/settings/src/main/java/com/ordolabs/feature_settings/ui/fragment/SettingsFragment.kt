@@ -100,6 +100,11 @@ class SettingsFragment :
                 contentType = Category.ContentType.APPEARANCE,
                 titleRes = R.string.settings_category_appearance,
                 iconRes = RApp.drawable.ic_palette
+            ),
+            Category(
+                contentType = Category.ContentType.ABOUT,
+                titleRes = R.string.settings_category_about,
+                iconRes = RApp.drawable.ic_info
             )
         )
 
