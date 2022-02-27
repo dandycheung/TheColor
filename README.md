@@ -7,11 +7,9 @@ Cutting edge Android app about each and every known color.
 - color schemes: modes, samples count and other
 
 #### Theming
-- TODO: full day/night mode support
-- TODO: variety of available themes
-
-#### Styling
 - Material 3 guidelines and widgets
+- full day/night mode support
+- TODO: variety of available themes
 - TODO: dynamic color support
 
 #### Animations
@@ -25,6 +23,7 @@ Cutting edge Android app about each and every known color.
 # Architecture & Benefits
 
 ## Architecture
+TODO: github diagram markdown
 
 ### UI
 
@@ -33,3 +32,5 @@ Cutting edge Android app about each and every known color.
 - navigation graph
 - TODO: deep links
 - TODO: multitasking via _android:documentLaunchMode_
+
+## Benefits
