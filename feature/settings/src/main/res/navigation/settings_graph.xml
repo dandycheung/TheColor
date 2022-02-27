@@ -12,8 +12,8 @@
         tools:layout="@layout/settings_fragment">
 
         <action
-            android:id="@+id/actionSettingsToAppearanceCategory"
-            app:destination="@id/appearanceCategoryFragment"
+            android:id="@+id/categoryAction"
+            app:destination="@id/categoryFragment"
             app:enterAnim="@anim/nav_subscreen_enter"
             app:exitAnim="@anim/nav_subscreen_exit"
             app:popEnterAnim="@anim/nav_subscreen_pop_enter"
@@ -22,9 +22,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/appearanceCategoryFragment"
-        android:name="com.ordolabs.feature_settings.ui.fragment.category.AppearanceCategoryFragment"
-        android:label="@string/settings_category_appearance"
-        tools:layout="@layout/category_appearance_fragment" />
+        android:id="@+id/categoryFragment"
+        android:name="com.ordolabs.feature_settings.ui.fragment.category.CategoryFragment"
+        android:label="@string/settings_category"
+        tools:layout="@layout/category_fragment">
+
+        <argument
+            android:name="contentType"
+            app:argType="com.ordolabs.feature_settings.ui.fragment.category.content.ContentType"
+            app:nullable="false" />
+
+    </fragment>
 
 </navigation>

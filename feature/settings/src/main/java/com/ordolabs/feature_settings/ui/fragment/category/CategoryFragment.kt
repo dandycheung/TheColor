@@ -1,0 +1,90 @@
+package com.ordolabs.feature_settings.ui.fragment.category
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.ordolabs.feature_settings.R
+import com.ordolabs.feature_settings.databinding.CategoryFragmentBinding
+import com.ordolabs.feature_settings.ui.fragment.BaseFragment
+import com.ordolabs.feature_settings.ui.fragment.category.content.AppearanceCategoryContentFragment
+import com.ordolabs.feature_settings.ui.fragment.category.content.ContentType
+import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
+import com.ordolabs.thecolor.util.ext.setFragmentOrGet
+
+class CategoryFragment : BaseFragment() {
+
+    private val binding: CategoryFragmentBinding by viewBinding()
+    private val args: CategoryFragmentArgs by navArgs()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.category_fragment, container, false)
+    }
+
+    // region Set fragments
+
+    override fun setFragments() {
+        setContentFragment()
+    }
+
+    private fun setContentFragment() {
+        val container = binding.contentFragmentContainer
+        val type = args.contentType
+        setFragmentOrGet(container.id) {
+            createFragmentFromContentType(type)
+        }
+    }
+
+    // endregion
+
+    // region Set views
+
+    override fun setViews() {
+        setToolbar()
+        setSharedElementTransitions()
+    }
+
+    private fun setToolbar() =
+        binding.run {
+            setActivitySupportActionBar(toolbar)
+            toolbar.setTitle(args.contentType.titleRes)
+            toolbar.setNavigationOnClickListener(::onToolbarNavigationClick)
+        }
+
+    private fun setSharedElementTransitions() {
+        val context = context ?: return
+        val transition = TransitionInflater
+            .from(context)
+            .inflateTransition(android.R.transition.move)
+        this.sharedElementEnterTransition = transition
+        this.sharedElementReturnTransition = transition
+    }
+
+    // endregion
+
+    // region View actions
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun onToolbarNavigationClick(view: View) {
+        findNavController().navigateUp()
+    }
+
+    // endregion
+
+    private fun createFragmentFromContentType(type: ContentType) =
+        when (type) {
+            ContentType.APPEARANCE -> AppearanceCategoryContentFragment.newInstance()
+        }
+
+    companion object {
+        // being created by NavHostFragment, thus no newInstance() method
+    }
+}

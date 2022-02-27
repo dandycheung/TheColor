@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
+import com.ordolabs.feature_settings.ui.fragment.category.content.ContentType
 import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
 
 class SettingsFragment : BaseFragment() {
@@ -40,7 +40,7 @@ class SettingsFragment : BaseFragment() {
     private fun setCategories() =
         binding.run {
             appearanceCategory.setOnClickListener { view ->
-                navigateToCategory(view, R.id.actionSettingsToAppearanceCategory)
+                navigateToCategory(view)
             }
         }
 
@@ -55,11 +55,13 @@ class SettingsFragment : BaseFragment() {
 
     // endregion
 
-    private fun navigateToCategory(categoryView: View, @IdRes actionId: Int) {
+    private fun navigateToCategory(itemView: View) {
+        val contentType = ContentType.APPEARANCE
+        val action = SettingsFragmentDirections.categoryAction(contentType)
         val extras = FragmentNavigatorExtras(
-            categoryView to getString(R.string.settings_category_shared_title)
+            itemView to getString(R.string.settings_category_shared_title)
         )
-        findNavController().navigate(actionId, null, null, extras)
+        findNavController().navigate(action, extras)
     }
 
     companion object {

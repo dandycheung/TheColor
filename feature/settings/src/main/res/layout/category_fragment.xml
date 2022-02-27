@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ordolabs.feature_settings.ui.fragment.category.AppearanceCategoryFragment">
+    tools:context="com.ordolabs.feature_settings.ui.fragment.category.CategoryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -13,11 +13,11 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            android:transitionName="@string/settings_category_shared_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="@string/settings_category_shared_title"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="@string/settings_category_appearance" />
+            tools:title="@string/settings_category_appearance" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,14 +27,11 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/contentFragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- content goes here -->
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            tools:layout="@layout/category_content_appearance_fragment" />
 
     </ScrollView>
 
