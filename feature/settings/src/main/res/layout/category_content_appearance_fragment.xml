@@ -2,6 +2,43 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/offset_content_horizontal"
+    android:paddingVertical="@dimen/offset_16">
+
+    <TextView
+        android:id="@+id/themeSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/offset_8"
+        android:text="@string/appearance_category_content_theme"
+        android:textAppearance="@style/TextAppearance.SettingsCategorySubtitle" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/themeSystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/offset_8"
+            android:text="@string/appearance_category_content_theme_system" />
+
+        <RadioButton
+            android:id="@+id/themeLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/offset_8"
+            android:text="@string/appearance_category_content_theme_light" />
+
+        <RadioButton
+            android:id="@+id/themeDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/offset_8"
+            android:text="@string/appearance_category_content_theme_dark" />
+
+    </RadioGroup>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

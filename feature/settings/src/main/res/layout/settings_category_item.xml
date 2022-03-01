@@ -8,7 +8,7 @@
     android:background="?attr/selectableItemBackground"
     android:drawablePadding="@dimen/offset_16"
     android:padding="@dimen/padding_list_item"
-    android:textAppearance="?attr/textAppearanceTitleMedium"
+    android:textAppearance="?attr/textAppearanceBodyLarge"
     app:drawableTint="@color/material_on_background_emphasis_medium"
     tools:drawableStartCompat="@drawable/ic_palette"
     tools:text="Category title"

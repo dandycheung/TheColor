@@ -15,6 +15,11 @@
 
     <!-- region Appearnace -->
 
+    <string name="appearance_category_content_theme">Theme</string>
+    <string name="appearance_category_content_theme_system">System</string>
+    <string name="appearance_category_content_theme_light">Light</string>
+    <string name="appearance_category_content_theme_dark">Dark</string>
+
     <!-- endregion -->
 
     <!-- region About -->
