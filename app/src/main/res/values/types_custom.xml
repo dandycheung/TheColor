@@ -7,7 +7,7 @@
     -->
 
     <style name="TextAppearance.SettingsCategorySubtitle" parent="TextAppearance.TheColor.TitleSmall">
-        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
 </resources>
