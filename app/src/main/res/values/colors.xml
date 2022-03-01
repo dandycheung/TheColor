@@ -12,6 +12,7 @@
 
     <!-- reds -->
     <color name="cinnamon_satin">#CF6679</color>
+    <color name="coral">#F44336</color>
     <color name="crimson">#B00020</color>
 
     <!-- violets -->
@@ -24,8 +25,6 @@
     <!-- blues -->
 
     <!-- azures -->
-    <color name="robin_egg">#03DAC6</color>
-    <color name="dark_cyan">#018786</color>
 
     <!-- greens -->
 

@@ -9,7 +9,7 @@
         <!-- colors theme -->
         <item name="colorPrimary">@color/indigo</item>
         <item name="colorPrimaryInverse">?attr/colorDebug</item>
-        <item name="colorSecondary">@color/robin_egg</item>
+        <item name="colorSecondary">@color/coral</item>
         <item name="colorTertiary">?attr/colorDebug</item>
         <item name="colorSurface">@color/magnolia</item>
         <item name="colorOutline">@color/m3_sys_color_light_outline</item>

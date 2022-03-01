@@ -6,4 +6,8 @@
         Preserve alphabetical order.
     -->
 
+    <style name="TextAppearance.SettingsCategorySubtitle" parent="TextAppearance.TheColor.TitleSmall">
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
 </resources>
