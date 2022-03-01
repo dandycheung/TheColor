@@ -12,14 +12,19 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
+import com.ordolabs.feature_settings.di.DaggerFeatureSettingsComponent
+import com.ordolabs.feature_settings.di.FeatureSettingsComponent
+import com.ordolabs.feature_settings.di.FeatureSettingsComponentKeeper
 import com.ordolabs.feature_settings.model.Category
 import com.ordolabs.feature_settings.ui.adapter.CategoryAdapter
 import com.ordolabs.thecolor.ui.adapter.base.OnRecyclerItemClicksListener
+import com.ordolabs.thecolor.util.ext.appComponent
 import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
 import com.ordolabs.thecolor.R as RApp
 
 class SettingsFragment :
     BaseFragment(),
+    FeatureSettingsComponentKeeper,
     OnRecyclerItemClicksListener {
 
     private val binding: SettingsFragmentBinding by viewBinding()
@@ -72,6 +77,18 @@ class SettingsFragment :
     private fun onToolbarNavigationClick(view: View) {
         findNavController().navigateUp()
     }
+
+    // endregion
+
+    // region FeatureSettingsComponentKeeper
+
+    override val featureSettingsComponent: FeatureSettingsComponent by lazy(::makeFeatureSettingsComponent)
+
+    private fun makeFeatureSettingsComponent(): FeatureSettingsComponent =
+        DaggerFeatureSettingsComponent
+            .builder()
+            .appComponent(appComponent)
+            .build()
 
     // endregion
 

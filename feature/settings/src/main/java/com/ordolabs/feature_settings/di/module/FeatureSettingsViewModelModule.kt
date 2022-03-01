@@ -6,8 +6,10 @@ import com.ordolabs.feature_settings.viewmodel.AppearanceViewModel
 import com.ordolabs.thecolor.di.mapkey.ViewModelKey
 import com.ordolabs.thecolor.viewmodel.factory.ViewModelFactory
 import dagger.Binds
+import dagger.Module
 import dagger.multibindings.IntoMap
 
+@Module
 interface FeatureSettingsViewModelModule {
 
     @Binds
