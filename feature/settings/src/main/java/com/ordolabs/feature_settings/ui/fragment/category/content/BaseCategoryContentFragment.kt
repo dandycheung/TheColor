@@ -16,7 +16,6 @@ abstract class BaseCategoryContentFragment : BaseFragment() {
     // endregion
 
     protected val settingsVM: SettingsViewModel by viewModels {
-        // TODO: has no feature settings component in ancestors; solve
         featureSettingsComponent.viewModelFactory
     }
 

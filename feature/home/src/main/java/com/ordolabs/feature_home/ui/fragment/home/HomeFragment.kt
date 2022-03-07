@@ -28,13 +28,13 @@ import com.ordolabs.feature_home.R
 import com.ordolabs.feature_home.databinding.HomeFragmentBinding
 import com.ordolabs.feature_home.di.DaggerFeatureHomeComponent
 import com.ordolabs.feature_home.di.FeatureHomeComponent
-import com.ordolabs.feature_home.di.FeatureHomeComponentKeeper
 import com.ordolabs.feature_home.ui.fragment.BaseFragment
 import com.ordolabs.feature_home.ui.fragment.color.data.ColorDataPagerFragment
 import com.ordolabs.feature_home.ui.fragment.color.data.details.ColorDetailsParent
 import com.ordolabs.feature_home.ui.fragment.color.input.page.ColorInputParent
 import com.ordolabs.feature_home.ui.fragment.color.input.pager.ColorInputPagerFragment
 import com.ordolabs.feature_home.ui.fragment.color.input.pager.ColorInputPagerView
+import com.ordolabs.feature_home.util.FeatureHomeUtil.featureHomeComponent
 import com.ordolabs.feature_home.viewmodel.HomeViewModel
 import com.ordolabs.feature_home.viewmodel.color.input.ColorValidatorViewModel
 import com.ordolabs.thecolor.model.color.Color
@@ -55,6 +55,7 @@ import com.ordolabs.thecolor.util.ext.mediumAnimDuration
 import com.ordolabs.thecolor.util.ext.propertyAnimator
 import com.ordolabs.thecolor.util.ext.propertyAnimatorOrNull
 import com.ordolabs.thecolor.util.ext.replaceFragment
+import com.ordolabs.thecolor.util.ext.scopedComponentsManager
 import com.ordolabs.thecolor.util.ext.setFragmentOrGet
 import com.ordolabs.thecolor.util.ext.shortAnimDuration
 import com.ordolabs.thecolor.util.restoreNavigationBarColor
@@ -66,7 +67,6 @@ import com.ordolabs.thecolor.R as RApp
 
 class HomeFragment :
     BaseFragment(),
-    FeatureHomeComponentKeeper,
     HomeView,
     ColorInputParent,
     ColorDetailsParent {
@@ -82,6 +82,10 @@ class HomeFragment :
     private var navigationBarColor: Color? = null
     private var inputPagerView: ColorInputPagerView? = null
     private val previewResizeDest = AnimatorDestination()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -116,8 +120,19 @@ class HomeFragment :
     // region Set up
 
     override fun setUp() {
-        featureHomeComponent // init
+        setFeatureComponent()
     }
+
+    private fun setFeatureComponent() {
+        val component = makeFeatureComponent()
+        scopedComponentsManager.add(component, lifecycle)
+    }
+
+    private fun makeFeatureComponent(): FeatureHomeComponent =
+        DaggerFeatureHomeComponent
+            .builder()
+            .appComponent(appComponent)
+            .build()
 
     // endregion
 
@@ -486,18 +501,6 @@ class HomeFragment :
         val radius = preview.height / 2
         return distance.toFloat() + addend - radius
     }
-
-    // endregion
-
-    // region FeatureHomeComponentKeeper
-
-    override val featureHomeComponent: FeatureHomeComponent by lazy(::makeFeatureHomeComponent)
-
-    private fun makeFeatureHomeComponent(): FeatureHomeComponent =
-        DaggerFeatureHomeComponent
-            .builder()
-            .appComponent(appComponent)
-            .build()
 
     // endregion
 
