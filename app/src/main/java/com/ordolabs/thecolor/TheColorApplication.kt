@@ -5,10 +5,12 @@ import com.ordolabs.data_bridge.DaggerDataComponent
 import com.ordolabs.domain.di.DaggerDomainComponent
 import com.ordolabs.thecolor.di.AppComponent
 import com.ordolabs.thecolor.di.DaggerAppComponent
+import com.ordolabs.thecolor.util.struct.scopedcomponent.ScopedComponentsManager
 
 internal class TheColorApplication : Application() {
 
     lateinit var appComponent: AppComponent
+    val scopedComponentsManager = ScopedComponentsManager()
 
     override fun onCreate() {
         super.onCreate()

@@ -14,6 +14,7 @@ import com.ordolabs.thecolor.util.ext.commit
 import com.ordolabs.thecolor.util.ext.error
 import com.ordolabs.thecolor.util.ext.success
 import com.ordolabs.thecolor.util.ext.toResultOrError
+import com.ordolabs.thecolor.util.struct.scopedcomponent.ScopedComponentsManager
 
 object ContextUtil {
 
@@ -148,6 +149,13 @@ object ContextUtil {
             null -> null
             is TheColorApplication -> context.appComponent
             else -> getAppComponent(context.applicationContext)
+        }
+
+    fun getScopedComponentsManager(context: Context?): ScopedComponentsManager? =
+        when (context) {
+            null -> null
+            is TheColorApplication -> context.scopedComponentsManager
+            else -> getScopedComponentsManager(context.applicationContext)
         }
 
     // endregion

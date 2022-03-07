@@ -16,6 +16,7 @@ import com.github.michaelbull.result.Result
 import com.ordolabs.thecolor.di.AppComponent
 import com.ordolabs.thecolor.ui.fragment.BaseFragment
 import com.ordolabs.thecolor.util.ContextUtil
+import com.ordolabs.thecolor.util.struct.scopedcomponent.ScopedComponentsManager
 
 /**
  * Mostly maps methods of [ContextUtil] object.
@@ -188,6 +189,9 @@ fun BaseFragment.hideSoftInputAndClearFocus(): Boolean {
 
 val Fragment.appComponent: AppComponent
     get() = requireNotNull(ContextUtil.getAppComponent(context))
+
+val Fragment.scopedComponentsManager: ScopedComponentsManager
+    get() = requireNotNull(ContextUtil.getScopedComponentsManager(context))
 
 // endregion
 
