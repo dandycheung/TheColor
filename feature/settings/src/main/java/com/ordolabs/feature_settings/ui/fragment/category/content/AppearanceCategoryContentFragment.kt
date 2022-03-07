@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAppearanceFragmentBinding
@@ -35,14 +36,22 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
         populateTheme(appearance.theme)
     }
 
-    private fun populateTheme(selected: ApplicationSettings.Appearance.Theme) {
-        val checkbox = when (selected) {
+    private fun populateTheme(current: ApplicationSettings.Appearance.Theme) {
+        val radiobutton = getRadioButtonForTheme(current)
+        radiobutton.isChecked = true
+        radiobutton.jumpDrawablesToCurrentState() // skips animation
+    }
+
+    // endregion
+
+    // region View utils
+
+    private fun getRadioButtonForTheme(theme: ApplicationSettings.Appearance.Theme): RadioButton =
+        when (theme) {
             ApplicationSettings.Appearance.Theme.SYSTEM -> binding.themeSystem
             ApplicationSettings.Appearance.Theme.LIGHT -> binding.themeLight
             ApplicationSettings.Appearance.Theme.DARK -> binding.themeDark
         }
-        checkbox.isChecked = true
-    }
 
     // endregion
 
