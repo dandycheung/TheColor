@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 
 /**
  * Manager for scoped component stores.
+ * [ScopedComponentStore] will be removed from [stores], once its [Disposable.dispose] method is called.
  */
 class ScopedComponentsManager : Disposable {
 
@@ -15,7 +16,7 @@ class ScopedComponentsManager : Disposable {
     }
 
     fun <C> add(component: C, lifecycle: Lifecycle): ScopedComponentStore<C> =
-        ScopedComponentStore(component, lifecycle).also { store ->
+        ScopedComponentStore(component, lifecycle, makeOnDisposeListener()).also { store ->
             stores.add(store)
         }
 
@@ -27,4 +28,9 @@ class ScopedComponentsManager : Disposable {
     }
 
     // endregion
+
+    private fun makeOnDisposeListener() =
+        ScopedComponentStore.OnDisposeListener { store ->
+            stores.remove(store)
+        }
 }

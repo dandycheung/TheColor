@@ -10,7 +10,8 @@ import androidx.lifecycle.LifecycleOwner
  */
 class ScopedComponentStore<C>(
     component: C,
-    lifecycle: Lifecycle
+    lifecycle: Lifecycle,
+    private val l: OnDisposeListener? = null
 ) : Disposable {
 
     val component: C
@@ -26,6 +27,7 @@ class ScopedComponentStore<C>(
 
     override fun dispose() {
         this._component = null
+        l?.onDisposed(this)
     }
 
     // endregion
@@ -37,4 +39,8 @@ class ScopedComponentStore<C>(
                 dispose()
             }
         }
+
+    fun interface OnDisposeListener {
+        fun onDisposed(store: ScopedComponentStore<*>)
+    }
 }
