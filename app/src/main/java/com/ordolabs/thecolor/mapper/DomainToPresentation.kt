@@ -4,8 +4,8 @@ import com.ordolabs.thecolor.model.color.Color
 import com.ordolabs.thecolor.model.color.data.ColorDetails
 import com.ordolabs.thecolor.model.color.data.ColorScheme
 import com.ordolabs.thecolor.util.ext.getFromEnumOrNull
-import com.ordolabs.domain.model.ColorDetails as ColorDetailsDomain
-import com.ordolabs.domain.model.ColorScheme as ColorSchemeDomain
+import com.ordolabs.domain.model.color.ColorDetails as ColorDetailsDomain
+import com.ordolabs.domain.model.color.ColorScheme as ColorSchemeDomain
 
 // region ColorDetails
 

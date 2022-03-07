@@ -1,13 +1,13 @@
 package com.ordolabs.thecolor.mapper
 
-import com.ordolabs.domain.model.ColorHex
-import com.ordolabs.domain.model.ColorRgb
+import com.ordolabs.domain.model.color.ColorHex
+import com.ordolabs.domain.model.color.ColorRgb
 import com.ordolabs.thecolor.model.color.Color
 import com.ordolabs.thecolor.model.color.ColorPrototype
 import com.ordolabs.thecolor.model.color.data.ColorSchemeRequest
 import com.ordolabs.thecolor.model.color.from
 import com.ordolabs.thecolor.model.color.toHex
-import com.ordolabs.domain.model.ColorSchemeRequest as ColorSchemeRequestDomain
+import com.ordolabs.domain.model.color.ColorSchemeRequest as ColorSchemeRequestDomain
 
 fun ColorPrototype.Hex.toDomain(): ColorHex? {
     Color.from(this) ?: return null

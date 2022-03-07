@@ -2,8 +2,10 @@ package com.ordolabs.data_remote.mapper
 
 import com.ordolabs.data_remote.model.ColorDetailsResponse
 import com.ordolabs.data_remote.model.ColorSchemeResponse
-import com.ordolabs.domain.model.ColorDetails
-import com.ordolabs.domain.model.ColorScheme
+import com.ordolabs.domain.model.color.ColorDetails
+import com.ordolabs.domain.model.color.ColorScheme
+
+// region Color
 
 fun ColorDetailsResponse.toDomain() = ColorDetails(
     hexValue = this.hex?.value,
@@ -68,3 +70,5 @@ fun ColorSchemeResponse.toDomain() = ColorScheme(
     colors = this.colors?.map { it.toDomain() },
     seed = this.seed?.toDomain()
 )
+
+// endregion

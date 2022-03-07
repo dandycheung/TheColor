@@ -1,7 +1,7 @@
 package com.ordolabs.feature_home.viewmodel.color.input
 
-import com.ordolabs.domain.usecase.local.ValidateColorHexUseCase
-import com.ordolabs.domain.usecase.local.ValidateColorRgbUseCase
+import com.ordolabs.domain.usecase.color.ValidateColorHexUseCase
+import com.ordolabs.domain.usecase.color.ValidateColorRgbUseCase
 import com.ordolabs.thecolor.mapper.toDomain
 import com.ordolabs.thecolor.model.color.Color
 import com.ordolabs.thecolor.model.color.ColorPreview

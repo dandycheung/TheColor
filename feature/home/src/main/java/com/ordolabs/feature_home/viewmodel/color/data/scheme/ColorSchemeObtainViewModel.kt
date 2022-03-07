@@ -1,6 +1,6 @@
 package com.ordolabs.feature_home.viewmodel.color.data.scheme
 
-import com.ordolabs.domain.usecase.remote.GetColorSchemeUseCase
+import com.ordolabs.domain.usecase.color.GetColorSchemeUseCase
 import com.ordolabs.thecolor.mapper.toDomain
 import com.ordolabs.thecolor.mapper.toPresentation
 import com.ordolabs.thecolor.model.color.data.ColorScheme
@@ -16,7 +16,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
-import com.ordolabs.domain.model.ColorSchemeRequest as ColorSchemeRequestDomain
+import com.ordolabs.domain.model.color.ColorSchemeRequest as ColorSchemeRequestDomain
 
 class ColorSchemeObtainViewModel @Inject constructor(
     private val getColorSchemeUseCase: GetColorSchemeUseCase

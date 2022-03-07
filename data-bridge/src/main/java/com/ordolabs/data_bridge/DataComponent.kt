@@ -1,7 +1,7 @@
 package com.ordolabs.data_bridge
 
 import android.content.Context
-import com.ordolabs.data_bridge.model.DataModule
+import com.ordolabs.data_bridge.module.DataModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

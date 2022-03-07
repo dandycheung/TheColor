@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAboutFragmentBinding
-import com.ordolabs.feature_settings.ui.fragment.BaseFragment
+import com.ordolabs.feature_settings.model.ApplicationSettings
 
-class AboutCategoryContentFragment : BaseFragment() {
+class AboutCategoryContentFragment : BaseCategoryContentFragment() {
 
     private val binding: CategoryContentAboutFragmentBinding by viewBinding()
 
@@ -25,6 +25,14 @@ class AboutCategoryContentFragment : BaseFragment() {
 
     override fun setViews() {
         //
+    }
+
+    // endregion
+
+    // region BaseCategoryContentFragment
+
+    override fun onSettingsCollected(settings: ApplicationSettings?) {
+        // do nothing, since there is no mutable settings in this fragment
     }
 
     // endregion
