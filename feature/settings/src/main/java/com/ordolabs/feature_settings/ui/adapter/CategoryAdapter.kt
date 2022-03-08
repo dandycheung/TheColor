@@ -3,7 +3,7 @@ package com.ordolabs.feature_settings.ui.adapter
 import android.view.View
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsCategoryItemBinding
-import com.ordolabs.feature_settings.model.Category
+import com.ordolabs.thecolor.model.settings.Category
 import com.ordolabs.thecolor.ui.adapter.base.BaseAdapter
 import com.ordolabs.thecolor.ui.adapter.base.BaseViewHolder
 

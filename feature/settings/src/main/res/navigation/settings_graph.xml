@@ -29,7 +29,7 @@
 
         <argument
             android:name="category"
-            app:argType="com.ordolabs.feature_settings.model.Category"
+            app:argType="com.ordolabs.thecolor.model.settings.Category"
             app:nullable="false" />
 
         <argument

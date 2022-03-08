@@ -14,8 +14,8 @@ import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.SettingsFragmentBinding
 import com.ordolabs.feature_settings.di.DaggerFeatureSettingsComponent
 import com.ordolabs.feature_settings.di.FeatureSettingsComponent
-import com.ordolabs.feature_settings.model.Category
 import com.ordolabs.feature_settings.ui.adapter.CategoryAdapter
+import com.ordolabs.thecolor.model.settings.Category
 import com.ordolabs.thecolor.ui.adapter.base.OnRecyclerItemClicksListener
 import com.ordolabs.thecolor.util.ext.appComponent
 import com.ordolabs.thecolor.util.ext.scopedComponentsManager

@@ -10,10 +10,10 @@ import androidx.transition.TransitionInflater
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryFragmentBinding
-import com.ordolabs.feature_settings.model.Category
 import com.ordolabs.feature_settings.ui.fragment.BaseFragment
 import com.ordolabs.feature_settings.ui.fragment.category.content.AboutCategoryContentFragment
 import com.ordolabs.feature_settings.ui.fragment.category.content.AppearanceCategoryContentFragment
+import com.ordolabs.thecolor.model.settings.Category
 import com.ordolabs.thecolor.util.ext.setActivitySupportActionBar
 import com.ordolabs.thecolor.util.ext.setFragmentOrGet
 

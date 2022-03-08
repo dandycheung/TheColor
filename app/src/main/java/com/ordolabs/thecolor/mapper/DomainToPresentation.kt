@@ -3,9 +3,12 @@ package com.ordolabs.thecolor.mapper
 import com.ordolabs.thecolor.model.color.Color
 import com.ordolabs.thecolor.model.color.data.ColorDetails
 import com.ordolabs.thecolor.model.color.data.ColorScheme
+import com.ordolabs.thecolor.model.settings.ApplicationSettings
+import com.ordolabs.thecolor.util.ext.getFromEnum
 import com.ordolabs.thecolor.util.ext.getFromEnumOrNull
 import com.ordolabs.domain.model.color.ColorDetails as ColorDetailsDomain
 import com.ordolabs.domain.model.color.ColorScheme as ColorSchemeDomain
+import com.ordolabs.domain.model.settings.ApplicationSettings as ApplicationSettingsDomain
 
 // region ColorDetails
 
@@ -99,5 +102,19 @@ fun ColorSchemeDomain.toPresentation() = ColorScheme(
     seed = this.seed?.toPresentation()
 )
 
+
+// endregion
+
+// region ApplicationSettings
+
+fun ApplicationSettingsDomain.toPresentation() =
+    ApplicationSettings(
+        appearance = this.appearance.toPresentation()
+    )
+
+fun ApplicationSettingsDomain.Appearance.toPresentation() =
+    ApplicationSettings.Appearance(
+        theme = getFromEnum(this.themeOrdinal)
+    )
 
 // endregion

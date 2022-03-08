@@ -1,4 +1,4 @@
-package com.ordolabs.feature_settings.model
+package com.ordolabs.thecolor.model.settings
 
 data class ApplicationSettings(
     val appearance: Appearance

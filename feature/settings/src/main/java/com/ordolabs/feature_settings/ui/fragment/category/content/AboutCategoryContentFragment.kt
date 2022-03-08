@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAboutFragmentBinding
-import com.ordolabs.feature_settings.model.ApplicationSettings
+import com.ordolabs.thecolor.model.settings.ApplicationSettings
 
 class AboutCategoryContentFragment : BaseCategoryContentFragment() {
 

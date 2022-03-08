@@ -9,7 +9,7 @@ import android.widget.RadioButton
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAppearanceFragmentBinding
-import com.ordolabs.feature_settings.model.ApplicationSettings
+import com.ordolabs.thecolor.model.settings.ApplicationSettings
 
 class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
 

@@ -1,11 +1,10 @@
-package com.ordolabs.feature_settings.viewmodel
+package com.ordolabs.thecolor.viewmodel
 
 import com.ordolabs.domain.usecase.settings.EditApplicationSettingsUseCase
 import com.ordolabs.domain.usecase.settings.GetApplicationSettingsUseCase
-import com.ordolabs.feature_settings.mapper.toDomain
-import com.ordolabs.feature_settings.mapper.toPresentation
-import com.ordolabs.feature_settings.model.ApplicationSettings
-import com.ordolabs.thecolor.viewmodel.BaseViewModel
+import com.ordolabs.thecolor.mapper.toDomain
+import com.ordolabs.thecolor.mapper.toPresentation
+import com.ordolabs.thecolor.model.settings.ApplicationSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect

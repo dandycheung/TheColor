@@ -7,7 +7,11 @@ import com.ordolabs.thecolor.model.color.ColorPrototype
 import com.ordolabs.thecolor.model.color.data.ColorSchemeRequest
 import com.ordolabs.thecolor.model.color.from
 import com.ordolabs.thecolor.model.color.toHex
+import com.ordolabs.thecolor.model.settings.ApplicationSettings
 import com.ordolabs.domain.model.color.ColorSchemeRequest as ColorSchemeRequestDomain
+import com.ordolabs.domain.model.settings.ApplicationSettings as ApplicationSettingsDomain
+
+// region ColorPrototype
 
 fun ColorPrototype.Hex.toDomain(): ColorHex? {
     Color.from(this) ?: return null
@@ -25,6 +29,10 @@ fun ColorPrototype.Rgb.toDomain(): ColorRgb? {
     )
 }
 
+// endregion
+
+// region ColorSchemeRequest
+
 fun ColorSchemeRequest.toDomain(): ColorSchemeRequestDomain {
     return ColorSchemeRequestDomain(
         seedHex = this.seed.toHex().value!!,
@@ -32,3 +40,19 @@ fun ColorSchemeRequest.toDomain(): ColorSchemeRequestDomain {
         sampleCount = this.config.sampleCount
     )
 }
+
+// endregion
+
+// region ApplicationSettings
+
+fun ApplicationSettings.toDomain() =
+    ApplicationSettingsDomain(
+        appearance = this.appearance.toDomain()
+    )
+
+fun ApplicationSettings.Appearance.toDomain() =
+    ApplicationSettingsDomain.Appearance(
+        themeOrdinal = this.theme.ordinal
+    )
+
+// endregion
