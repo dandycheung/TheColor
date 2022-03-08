@@ -31,7 +31,7 @@ class AboutCategoryContentFragment : BaseCategoryContentFragment() {
 
     // region BaseCategoryContentFragment
 
-    override fun onSettingsCollected(settings: ApplicationSettings?) {
+    override fun populateViews(settings: ApplicationSettings) {
         // do nothing, since there is no mutable settings in this fragment
     }
 

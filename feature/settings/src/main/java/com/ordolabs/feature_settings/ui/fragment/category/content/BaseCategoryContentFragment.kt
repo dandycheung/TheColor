@@ -11,13 +11,15 @@ abstract class BaseCategoryContentFragment : BaseFragment() {
 
     // region Abstract
 
-    abstract fun onSettingsCollected(settings: ApplicationSettings?)
+    abstract fun populateViews(settings: ApplicationSettings)
 
     // endregion
 
     protected val settingsVM: SettingsViewModel by viewModels {
         featureSettingsComponent.viewModelFactory
     }
+
+    protected var settings: ApplicationSettings? = null
 
     // region Collect ViewModels data
 
@@ -27,7 +29,11 @@ abstract class BaseCategoryContentFragment : BaseFragment() {
     }
 
     private fun collectSettings() =
-        settingsVM.settings.collectOnLifecycle(action = ::onSettingsCollected)
+        settingsVM.settings.collectOnLifecycle a@{ settings ->
+            settings ?: return@a
+            this.settings = settings
+            populateViews(settings)
+        }
 
     // endregion
 }

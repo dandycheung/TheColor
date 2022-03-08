@@ -1,6 +1,8 @@
 package com.ordolabs.feature_settings.viewmodel
 
+import com.ordolabs.domain.usecase.settings.EditApplicationSettingsUseCase
 import com.ordolabs.domain.usecase.settings.GetApplicationSettingsUseCase
+import com.ordolabs.feature_settings.mapper.toDomain
 import com.ordolabs.feature_settings.mapper.toPresentation
 import com.ordolabs.feature_settings.model.ApplicationSettings
 import com.ordolabs.thecolor.viewmodel.BaseViewModel
@@ -10,7 +12,8 @@ import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class SettingsViewModel @Inject constructor(
-    getApplicationSettingsUseCase: GetApplicationSettingsUseCase
+    private val getApplicationSettingsUseCase: GetApplicationSettingsUseCase,
+    private val editApplicationSettingsUseCase: EditApplicationSettingsUseCase
 ) : BaseViewModel() {
 
     private val _settings = MutableStateFlow<ApplicationSettings?>(null)
@@ -26,5 +29,15 @@ class SettingsViewModel @Inject constructor(
 
     override fun onCleared() {
         super.onCleared()
+    }
+
+    fun editAppearance(appearance: ApplicationSettings.Appearance) {
+        launchInIO {
+            val domain = appearance.toDomain()
+            editApplicationSettingsUseCase.invoke(domain)
+                .collect {
+                    // empty collect; updated settings will be collected from 'settings' flow
+                }
+        }
     }
 }

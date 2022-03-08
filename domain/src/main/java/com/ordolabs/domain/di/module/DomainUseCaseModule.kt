@@ -11,6 +11,8 @@ import com.ordolabs.domain.usecase.color.ValidateColorHexUseCase
 import com.ordolabs.domain.usecase.color.ValidateColorHexUseCaseImpl
 import com.ordolabs.domain.usecase.color.ValidateColorRgbUseCase
 import com.ordolabs.domain.usecase.color.ValidateColorRgbUseCaseImpl
+import com.ordolabs.domain.usecase.settings.EditApplicationSettingsUseCase
+import com.ordolabs.domain.usecase.settings.EditApplicationSettingsUseCaseImpl
 import com.ordolabs.domain.usecase.settings.GetApplicationSettingsUseCase
 import com.ordolabs.domain.usecase.settings.GetApplicationSettingsUseCaseImpl
 import dagger.Module
@@ -60,6 +62,13 @@ class DomainUseCaseModule {
         repository: ApplicationSettingsRepository
     ): GetApplicationSettingsUseCase =
         GetApplicationSettingsUseCaseImpl(repository)
+
+    @Provides
+    @Singleton
+    fun provideEditApplicationSettingsUseCase(
+        repository: ApplicationSettingsRepository
+    ): EditApplicationSettingsUseCase =
+        EditApplicationSettingsUseCaseImpl(repository)
 
     // endregion
 }

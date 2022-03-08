@@ -4,6 +4,7 @@ import com.ordolabs.domain.usecase.color.GetColorDetailsUseCase
 import com.ordolabs.domain.usecase.color.GetColorSchemeUseCase
 import com.ordolabs.domain.usecase.color.ValidateColorHexUseCase
 import com.ordolabs.domain.usecase.color.ValidateColorRgbUseCase
+import com.ordolabs.domain.usecase.settings.EditApplicationSettingsUseCase
 import com.ordolabs.domain.usecase.settings.GetApplicationSettingsUseCase
 
 interface DomainProvisions {
@@ -21,6 +22,7 @@ interface DomainProvisions {
     // region Settings uses cases
 
     val getApplicationSettingsUseCase: GetApplicationSettingsUseCase
+    val editApplicationSettingsUseCase: EditApplicationSettingsUseCase
 
     // endregion
 }

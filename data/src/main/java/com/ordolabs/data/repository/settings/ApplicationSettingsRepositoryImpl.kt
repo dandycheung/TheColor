@@ -2,10 +2,13 @@ package com.ordolabs.data.repository.settings
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import com.ordolabs.data_local.datastore.TheColorDataStore
 import com.ordolabs.data_local.mapper.toApplicationSettings
 import com.ordolabs.domain.model.settings.ApplicationSettings
 import com.ordolabs.domain.repository.settings.ApplicationSettingsRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class ApplicationSettingsRepositoryImpl(
@@ -15,5 +18,19 @@ class ApplicationSettingsRepositoryImpl(
     override fun getApplicationSettings(): Flow<ApplicationSettings> =
         datastore.data.map { prefs ->
             prefs.toApplicationSettings()
+        }
+
+    override fun editApplicationSettings(category: ApplicationSettings.Category): Flow<ApplicationSettings> =
+        flow {
+            val edited = when (category) {
+                is ApplicationSettings.Appearance -> editAppearanceCategory(category)
+            }
+            emit(edited.toApplicationSettings())
+        }
+
+    private suspend fun editAppearanceCategory(category: ApplicationSettings.Appearance) =
+        datastore.edit { prefs ->
+            prefs[TheColorDataStore.PreferencesKeys.SETTINGS_APPEARANCE_THEME] =
+                category.themeOrdinal
         }
 }

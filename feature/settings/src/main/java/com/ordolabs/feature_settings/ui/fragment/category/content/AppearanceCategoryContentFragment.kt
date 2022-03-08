@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.RadioButton
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
@@ -25,21 +26,26 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
     // region Set views
 
     override fun setViews() {
-        //
+        setThemeRadioButtons()
+    }
+
+    private fun setThemeRadioButtons() {
+        binding.themeSystem.setOnCheckedChangeListener(::onThemeRadioButtonChecked)
+        binding.themeLight.setOnCheckedChangeListener(::onThemeRadioButtonChecked)
+        binding.themeDark.setOnCheckedChangeListener(::onThemeRadioButtonChecked)
     }
 
     // endregion
 
-    // region Populate views
+    // region View actions
 
-    private fun populateViews(appearance: ApplicationSettings.Appearance) {
-        populateTheme(appearance.theme)
-    }
-
-    private fun populateTheme(current: ApplicationSettings.Appearance.Theme) {
-        val radiobutton = getRadioButtonForTheme(current)
-        radiobutton.isChecked = true
-        radiobutton.jumpDrawablesToCurrentState() // skips animation
+    private fun onThemeRadioButtonChecked(button: CompoundButton, isChecked: Boolean) {
+        if (!isChecked) return // ignore unchecking
+        val theme = getThemeForRadioButton(button)
+        val updated = settings?.appearance?.copy(
+            theme = theme
+        ) ?: return
+        settingsVM.editAppearance(updated)
     }
 
     // endregion
@@ -53,13 +59,25 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
             ApplicationSettings.Appearance.Theme.DARK -> binding.themeDark
         }
 
+    private fun getThemeForRadioButton(radiobutton: View): ApplicationSettings.Appearance.Theme =
+        when (radiobutton) {
+            binding.themeLight -> ApplicationSettings.Appearance.Theme.LIGHT
+            binding.themeDark -> ApplicationSettings.Appearance.Theme.DARK
+            else -> ApplicationSettings.Appearance.Theme.SYSTEM
+        }
+
     // endregion
 
     // region BaseCategoryContentFragment
 
-    override fun onSettingsCollected(settings: ApplicationSettings?) {
-        settings ?: return
-        populateViews(settings.appearance)
+    override fun populateViews(settings: ApplicationSettings) {
+        populateTheme(settings.appearance.theme)
+    }
+
+    private fun populateTheme(current: ApplicationSettings.Appearance.Theme) {
+        val radiobutton = getRadioButtonForTheme(current)
+        radiobutton.isChecked = true
+        radiobutton.jumpDrawablesToCurrentState() // skips animation
     }
 
     // endregion
