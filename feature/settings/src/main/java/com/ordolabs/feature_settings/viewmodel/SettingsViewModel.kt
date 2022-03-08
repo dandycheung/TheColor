@@ -21,9 +21,10 @@ class SettingsViewModel @Inject constructor(
 
     init {
         launchInIO {
-            getApplicationSettingsUseCase.invoke(Unit).collect { domain ->
-                _settings.emit(domain.toPresentation())
-            }
+            getApplicationSettingsUseCase.invoke(Unit)
+                .collect { domain ->
+                    _settings.emit(domain.toPresentation())
+                }
         }
     }
 
@@ -35,9 +36,6 @@ class SettingsViewModel @Inject constructor(
         launchInIO {
             val domain = appearance.toDomain()
             editApplicationSettingsUseCase.invoke(domain)
-                .collect {
-                    // empty collect; updated settings will be collected from 'settings' flow
-                }
         }
     }
 }

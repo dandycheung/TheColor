@@ -6,7 +6,7 @@ import com.ordolabs.domain.repository.color.ColorRemoteRepository
 import com.ordolabs.domain.usecase.BaseUseCase
 import kotlinx.coroutines.flow.Flow
 
-interface GetColorSchemeUseCase : BaseUseCase<ColorSchemeRequest, ColorScheme>
+interface GetColorSchemeUseCase : BaseUseCase<ColorSchemeRequest, Flow<ColorScheme>>
 
 class GetColorSchemeUseCaseImpl(
     private val colorRemoteRepository: ColorRemoteRepository

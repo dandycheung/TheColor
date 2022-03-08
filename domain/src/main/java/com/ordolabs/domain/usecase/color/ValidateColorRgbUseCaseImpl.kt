@@ -5,7 +5,7 @@ import com.ordolabs.domain.repository.color.ColorValidatorRepository
 import com.ordolabs.domain.usecase.BaseUseCase
 import kotlinx.coroutines.flow.Flow
 
-interface ValidateColorRgbUseCase : BaseUseCase<ColorRgb?, Boolean>
+interface ValidateColorRgbUseCase : BaseUseCase<ColorRgb?, Flow<Boolean>>
 
 class ValidateColorRgbUseCaseImpl(
     private val colorValidatorRepository: ColorValidatorRepository

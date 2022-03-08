@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface ApplicationSettingsRepository {
 
     fun getApplicationSettings(): Flow<ApplicationSettings>
-    fun editApplicationSettings(category: ApplicationSettings.Category): Flow<ApplicationSettings>
+    suspend fun editApplicationSettings(category: ApplicationSettings.Category)
 }

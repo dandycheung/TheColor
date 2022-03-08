@@ -47,8 +47,8 @@ class ColorDetailsObtainViewModel @Inject constructor(
         launchInIO {
             getColorDetailsUseCase.invoke(colorHex)
                 .catchFailureIn(_details)
-                .collect { detailsDomain ->
-                    val details = detailsDomain.toPresentation()
+                .collect { domain ->
+                    val details = domain.toPresentation()
                     _details.setSuccess(details)
                 }
         }

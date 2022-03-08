@@ -42,8 +42,8 @@ class ColorSchemeObtainViewModel @Inject constructor(
         launchInIO {
             getColorSchemeUseCase.invoke(request)
                 .catchFailureIn(_scheme)
-                .collect { schemeDomain ->
-                    val scheme = schemeDomain.toPresentation()
+                .collect { domain ->
+                    val scheme = domain.toPresentation()
                     _scheme.setSuccess(scheme)
                 }
         }
