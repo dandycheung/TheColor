@@ -31,8 +31,8 @@ abstract class BaseCategoryContentFragment : BaseFragment() {
     private fun collectSettings() =
         settingsVM.settings.collectOnLifecycle a@{ settings ->
             settings ?: return@a
-            this.settings = settings
             populateViews(settings)
+            this.settings = settings
         }
 
     // endregion

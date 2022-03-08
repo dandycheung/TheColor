@@ -32,10 +32,9 @@ class SettingsViewModel @Inject constructor(
         super.onCleared()
     }
 
-    fun editAppearance(appearance: ApplicationSettings.Appearance) {
+    fun editAppearance(appearance: ApplicationSettings.Appearance) =
         launchInIO {
             val domain = appearance.toDomain()
             editApplicationSettingsUseCase.invoke(domain)
         }
-    }
 }
