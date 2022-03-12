@@ -5,8 +5,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 
 /**
- * Stores [component] of type [C] withing specified [lifecycle].
- * [component] will be released automatically when [lifecycle] reaches [Lifecycle.State.DESTROYED] state.
+ * Stores [component] of type [C] withing specified lifecycle.
+ * [component] will be released automatically when lifecycle reaches [Lifecycle.State.DESTROYED] state.
  */
 class ScopedComponentStore<C>(
     component: C,
