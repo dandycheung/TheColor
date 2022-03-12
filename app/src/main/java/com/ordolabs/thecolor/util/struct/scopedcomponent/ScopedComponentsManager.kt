@@ -10,6 +10,13 @@ class ScopedComponentsManager : Disposable {
 
     val stores = mutableSetOf<ScopedComponentStore<*>>()
 
+    inline fun <reified C> storeOf(): ScopedComponentStore<*>? {
+        stores.forEach {
+            if (it.component is C) return it
+        }
+        return null
+    }
+
     inline fun <reified C> componentOf(): C {
         val store = stores.first { it.component is C }
         return store.component as C
