@@ -15,10 +15,12 @@ class ScopedComponentsManager : Disposable {
         return store.component as C
     }
 
-    fun <C> add(component: C, lifecycle: Lifecycle): ScopedComponentStore<C> =
-        ScopedComponentStore(component, lifecycle, makeOnDisposeListener()).also { store ->
-            stores.add(store)
-        }
+    fun <C> add(component: C, lifecycle: Lifecycle): ScopedComponentStore<C> {
+        val listener = makeOnDisposeListener()
+        val store = ScopedComponentStore(component, lifecycle, listener)
+        stores.add(store)
+        return store
+    }
 
     // region Disposable
 
