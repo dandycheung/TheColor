@@ -60,7 +60,7 @@ class SettingsFragment :
     private fun makeFeatureComponent(): FeatureSettingsComponent =
         DaggerFeatureSettingsComponent
             .builder()
-            .appComponent(appComponent)
+            .appProvisions(appComponent)
             .build()
 
     // endregion

@@ -1,8 +1,7 @@
 package com.ordolabs.thecolor.di
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.ordolabs.domain.di.DomainComponent
-import com.ordolabs.domain.di.DomainProvisions
 import com.ordolabs.thecolor.di.module.AppModule
 import com.ordolabs.thecolor.di.scope.AppScope
 import dagger.Component
@@ -12,11 +11,11 @@ import dagger.Component
     modules = [AppModule::class],
     dependencies = [DomainComponent::class]
 )
-interface AppComponent : DomainProvisions {
+interface AppComponent : AppProvisions {
 
     // region Provisions
 
-    val viewModelMultibinding: Map<Class<out ViewModel>, @JvmSuppressWildcards ViewModel>
+    val viewModelFactory: ViewModelProvider.Factory
 
     // endregion
 

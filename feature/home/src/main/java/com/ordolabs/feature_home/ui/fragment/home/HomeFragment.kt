@@ -131,7 +131,7 @@ class HomeFragment :
     private fun makeFeatureComponent(): FeatureHomeComponent =
         DaggerFeatureHomeComponent
             .builder()
-            .appComponent(appComponent)
+            .appProvisions(appComponent)
             .build()
 
     // endregion
