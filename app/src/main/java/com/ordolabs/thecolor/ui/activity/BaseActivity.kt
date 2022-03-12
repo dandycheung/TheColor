@@ -13,6 +13,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setViews()
     }
 
+    // region onCreate
+
     /**
      * Parses `Intent`, that started this `Activity`.
      */
@@ -41,6 +43,8 @@ abstract class BaseActivity : AppCompatActivity() {
      * Being called in [onCreate] method.
      */
     protected abstract fun setViews()
+
+    // endregion
 
     companion object {
         // extra keys and stuff
