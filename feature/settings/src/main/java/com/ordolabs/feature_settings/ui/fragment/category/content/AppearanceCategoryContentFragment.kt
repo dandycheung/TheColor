@@ -47,8 +47,7 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
         val settings = settings ?: return
         val theme = getThemeForRadioButton(button)
         if (theme == settings.appearance.theme) return // already set
-        val mode = theme.nightMode
-        AppCompatDelegate.setDefaultNightMode(mode)
+        AppCompatDelegate.setDefaultNightMode(theme.nightMode)
         val updated = settings.appearance.copy(theme = theme)
         settingsVM.editAppearance(updated)
     }
