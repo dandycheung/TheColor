@@ -1,7 +1,6 @@
 package com.ordolabs.feature_home.di.module
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.ordolabs.feature_home.viewmodel.HomeViewModel
 import com.ordolabs.feature_home.viewmodel.color.data.ColorDataViewModel
 import com.ordolabs.feature_home.viewmodel.color.data.details.ColorDetailsObtainViewModel
@@ -10,17 +9,16 @@ import com.ordolabs.feature_home.viewmodel.color.data.scheme.ColorSchemeObtainVi
 import com.ordolabs.feature_home.viewmodel.color.input.ColorInputViewModel
 import com.ordolabs.feature_home.viewmodel.color.input.ColorValidatorViewModel
 import com.ordolabs.thecolor.di.mapkey.ViewModelKey
+import com.ordolabs.thecolor.di.module.AppViewModelModule
 import com.ordolabs.thecolor.viewmodel.factory.AssistedSavedStateViewModelFactory
-import com.ordolabs.thecolor.viewmodel.factory.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-@Module
+@Module(
+    includes = [AppViewModelModule::class]
+)
 interface FeatureHomeViewModelModule {
-
-    @Binds
-    fun bindViewModelFactory(instance: ViewModelFactory): ViewModelProvider.Factory
 
     // region Home
 
