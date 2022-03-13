@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatDelegate
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAppearanceFragmentBinding
@@ -42,9 +43,13 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
     private fun onThemeRadioButtonChecked(button: CompoundButton, isChecked: Boolean) {
         if (!isChecked) return // ignore unchecking
         val theme = getThemeForRadioButton(button)
-        val updated = settings?.appearance?.copy(
-            theme = theme
-        ) ?: return
+        val mode = when (theme) {
+            ApplicationSettings.Appearance.Theme.SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            ApplicationSettings.Appearance.Theme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
+            ApplicationSettings.Appearance.Theme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
+        }
+        AppCompatDelegate.setDefaultNightMode(mode)
+        val updated = settings?.appearance?.copy(theme = theme) ?: return
         settingsVM.editAppearance(updated)
     }
 
