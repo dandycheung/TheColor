@@ -144,9 +144,8 @@ object ContextUtil {
 
     // region DI
 
-    fun getAppComponent(context: Context?): AppComponent? =
+    fun getAppComponent(context: Context): AppComponent =
         when (context) {
-            null -> null
             is TheColorApplication -> context.appComponent
             else -> getAppComponent(context.applicationContext)
         }

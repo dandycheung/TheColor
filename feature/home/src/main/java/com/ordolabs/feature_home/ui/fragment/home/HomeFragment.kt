@@ -26,8 +26,6 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_home.R
 import com.ordolabs.feature_home.databinding.HomeFragmentBinding
-import com.ordolabs.feature_home.di.DaggerFeatureHomeComponent
-import com.ordolabs.feature_home.di.FeatureHomeComponent
 import com.ordolabs.feature_home.ui.fragment.BaseFragment
 import com.ordolabs.feature_home.ui.fragment.color.data.ColorDataPagerFragment
 import com.ordolabs.feature_home.ui.fragment.color.data.details.ColorDetailsParent
@@ -42,7 +40,6 @@ import com.ordolabs.thecolor.model.color.ColorPreview
 import com.ordolabs.thecolor.model.color.ColorPrototype
 import com.ordolabs.thecolor.model.color.toColorInt
 import com.ordolabs.thecolor.util.AnimationUtils
-import com.ordolabs.thecolor.util.ext.appComponent
 import com.ordolabs.thecolor.util.ext.bindPropertyAnimator
 import com.ordolabs.thecolor.util.ext.by
 import com.ordolabs.thecolor.util.ext.createCircularRevealAnimation
@@ -55,7 +52,6 @@ import com.ordolabs.thecolor.util.ext.mediumAnimDuration
 import com.ordolabs.thecolor.util.ext.propertyAnimator
 import com.ordolabs.thecolor.util.ext.propertyAnimatorOrNull
 import com.ordolabs.thecolor.util.ext.replaceFragment
-import com.ordolabs.thecolor.util.ext.scopedComponentsManager
 import com.ordolabs.thecolor.util.ext.setFragmentOrGet
 import com.ordolabs.thecolor.util.ext.shortAnimDuration
 import com.ordolabs.thecolor.util.restoreNavigationBarColor
@@ -82,10 +78,6 @@ class HomeFragment :
     private var navigationBarColor: Color? = null
     private var inputPagerView: ColorInputPagerView? = null
     private val previewResizeDest = AnimatorDestination()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -116,25 +108,6 @@ class HomeFragment :
         super.onDestroy()
         this.inputPagerView = null
     }
-
-    // region Set up
-
-    override fun setUp() {
-        setFeatureComponent()
-    }
-
-    private fun setFeatureComponent() {
-        val component = makeFeatureComponent()
-        scopedComponentsManager.add(component, lifecycle)
-    }
-
-    private fun makeFeatureComponent(): FeatureHomeComponent =
-        DaggerFeatureHomeComponent
-            .builder()
-            .appProvisions(appComponent)
-            .build()
-
-    // endregion
 
     // region Collect ViewModels data
 

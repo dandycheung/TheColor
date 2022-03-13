@@ -17,8 +17,8 @@ class ScopedComponentsManager : Disposable {
         return null
     }
 
-    inline fun <reified C> componentOf(): C {
-        val store = stores.first { it.component is C }
+    inline fun <reified C> componentOf(): C? {
+        val store = stores.firstOrNull { it.component is C } ?: return null
         return store.component as C
     }
 

@@ -188,7 +188,7 @@ fun BaseFragment.hideSoftInputAndClearFocus(): Boolean {
 // region DI
 
 val Fragment.appComponent: AppComponent
-    get() = requireNotNull(ContextUtil.getAppComponent(context))
+    get() = requireNotNull(ContextUtil.getAppComponent(requireContext()))
 
 val Fragment.scopedComponentsManager: ScopedComponentsManager
     get() = requireNotNull(ContextUtil.getScopedComponentsManager(context))
