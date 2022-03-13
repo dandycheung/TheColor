@@ -12,6 +12,7 @@ import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAppearanceFragmentBinding
 import com.ordolabs.thecolor.model.settings.ApplicationSettings
 import com.ordolabs.thecolor.model.settings.ApplicationSettings.Appearance
+import com.ordolabs.thecolor.model.settings.ApplicationSettingsUtil.nightMode
 
 class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
 
@@ -45,7 +46,8 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
         if (!isChecked) return // ignore unchecking
         val settings = settings ?: return
         val theme = getThemeForRadioButton(button)
-        val mode = settings.appearance.themeNightMode
+        if (theme == settings.appearance.theme) return // already set
+        val mode = theme.nightMode
         AppCompatDelegate.setDefaultNightMode(mode)
         val updated = settings.appearance.copy(theme = theme)
         settingsVM.editAppearance(updated)

@@ -1,6 +1,5 @@
 package com.ordolabs.thecolor.mapper
 
-import androidx.appcompat.app.AppCompatDelegate
 import com.ordolabs.thecolor.model.color.Color
 import com.ordolabs.thecolor.model.color.data.ColorDetails
 import com.ordolabs.thecolor.model.color.data.ColorScheme
@@ -113,19 +112,9 @@ fun ApplicationSettingsDomain.toPresentation() =
         appearance = this.appearance.toPresentation()
     )
 
-fun ApplicationSettingsDomain.Appearance.toPresentation(): ApplicationSettings.Appearance {
-    val theme: ApplicationSettings.Appearance.Theme = getFromEnum(this.themeOrdinal)
-    return ApplicationSettings.Appearance(
-        theme = theme,
-        themeNightMode = inferThemeNightMode(theme)
+fun ApplicationSettingsDomain.Appearance.toPresentation() =
+    ApplicationSettings.Appearance(
+        theme = getFromEnum(this.themeOrdinal)
     )
-}
-
-private fun inferThemeNightMode(theme: ApplicationSettings.Appearance.Theme) =
-    when (theme) {
-        ApplicationSettings.Appearance.Theme.SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-        ApplicationSettings.Appearance.Theme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
-        ApplicationSettings.Appearance.Theme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
-    }
 
 // endregion

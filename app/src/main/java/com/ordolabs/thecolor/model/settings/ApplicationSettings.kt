@@ -7,8 +7,7 @@ data class ApplicationSettings(
     sealed interface Category
 
     data class Appearance(
-        val theme: Theme,
-        val themeNightMode: Int
+        val theme: Theme
     ) : Category {
 
         enum class Theme {
