@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ordolabs.feature_settings.R
 import com.ordolabs.feature_settings.databinding.CategoryContentAppearanceFragmentBinding
 import com.ordolabs.thecolor.model.settings.ApplicationSettings
+import com.ordolabs.thecolor.model.settings.ApplicationSettings.Appearance
 
 class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
 
@@ -42,14 +43,11 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
 
     private fun onThemeRadioButtonChecked(button: CompoundButton, isChecked: Boolean) {
         if (!isChecked) return // ignore unchecking
+        val settings = settings ?: return
         val theme = getThemeForRadioButton(button)
-        val mode = when (theme) {
-            ApplicationSettings.Appearance.Theme.SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-            ApplicationSettings.Appearance.Theme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
-            ApplicationSettings.Appearance.Theme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
-        }
+        val mode = settings.appearance.themeNightMode
         AppCompatDelegate.setDefaultNightMode(mode)
-        val updated = settings?.appearance?.copy(theme = theme) ?: return
+        val updated = settings.appearance.copy(theme = theme)
         settingsVM.editAppearance(updated)
     }
 
@@ -57,18 +55,18 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
 
     // region View utils
 
-    private fun getRadioButtonForTheme(theme: ApplicationSettings.Appearance.Theme): RadioButton =
+    private fun getRadioButtonForTheme(theme: Appearance.Theme): RadioButton =
         when (theme) {
-            ApplicationSettings.Appearance.Theme.SYSTEM -> binding.themeSystem
-            ApplicationSettings.Appearance.Theme.LIGHT -> binding.themeLight
-            ApplicationSettings.Appearance.Theme.DARK -> binding.themeDark
+            Appearance.Theme.SYSTEM -> binding.themeSystem
+            Appearance.Theme.LIGHT -> binding.themeLight
+            Appearance.Theme.DARK -> binding.themeDark
         }
 
-    private fun getThemeForRadioButton(radiobutton: View): ApplicationSettings.Appearance.Theme =
+    private fun getThemeForRadioButton(radiobutton: View): Appearance.Theme =
         when (radiobutton) {
-            binding.themeLight -> ApplicationSettings.Appearance.Theme.LIGHT
-            binding.themeDark -> ApplicationSettings.Appearance.Theme.DARK
-            else -> ApplicationSettings.Appearance.Theme.SYSTEM
+            binding.themeLight -> Appearance.Theme.LIGHT
+            binding.themeDark -> Appearance.Theme.DARK
+            else -> Appearance.Theme.SYSTEM
         }
 
     // endregion
@@ -79,7 +77,7 @@ class AppearanceCategoryContentFragment : BaseCategoryContentFragment() {
         populateTheme(settings.appearance.theme)
     }
 
-    private fun populateTheme(current: ApplicationSettings.Appearance.Theme) {
+    private fun populateTheme(current: Appearance.Theme) {
         val radiobutton = getRadioButtonForTheme(current)
         radiobutton.isChecked = true
         radiobutton.jumpDrawablesToCurrentState() // skips animation
